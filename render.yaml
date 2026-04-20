@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: task-manager-backend
+    env: docker
+    rootDir: backend
