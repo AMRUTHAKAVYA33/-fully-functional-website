@@ -68,7 +68,6 @@ The database file will be created automatically inside `backend/data/`.
 
 Optional:
 
-- H2 console: `http://localhost:8080/h2-console`
 - Backend default port: `8081`
 - H2 console: `http://localhost:8081/h2-console`
 - JDBC URL for console login: `jdbc:h2:file:./data/task-manager-db`
@@ -87,7 +86,7 @@ npm install
 2. Create an environment file:
 
 ```env
-VITE_API_URL=http://localhost:8080
+VITE_API_URL=http://localhost:8081
 ```
 
 3. Start the frontend:
@@ -105,13 +104,14 @@ npm run dev
 
 ## Deployment
 
-### Frontend on Netlify
+### Frontend on Vercel
 
-- Import the repository in Netlify.
-- Set the base directory to `frontend`.
-- Build command: `npm run build`
-- Publish directory: `dist`
-- Set `VITE_API_URL` to your Render backend URL.
+- Import the GitHub repository into Vercel.
+- When Vercel asks for the project settings, set the Root Directory to `frontend`.
+- Vercel will detect Vite automatically. Keep the build command as `npm run build`.
+- Output directory: `dist`
+- Set `VITE_API_URL` to your deployed backend URL.
+- The included [frontend/vercel.json](C:/Users/AmruthaKotareti/OneDrive/Desktop/fully%20functional%20website/frontend/vercel.json) adds an SPA fallback so React Router routes like `/login` and `/dashboard` work after refresh.
 
 ### Backend on Render
 
@@ -130,3 +130,4 @@ npm run dev
 - Passwords are stored using BCrypt hashing.
 - JWT is required for all task endpoints.
 - The backend auto-creates the tables using JPA/Hibernate.
+- Vercel is best used here for the React frontend. The Spring Boot backend should stay on a Java-friendly host such as Render.
